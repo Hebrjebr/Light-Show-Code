@@ -1,0 +1,62 @@
+/*
+==LIGHT_SHOW==
+- Create a synced choreographed light show that lasts anywhere
+  from 10-20 seconds
+==END COMMENT CODE==
+*/
+
+void setup(){
+  //Red LEDs
+  pinMode(1, OUTPUT); pinMode(2, OUTPUT);
+  //Blue LEDs
+  pinMode(3, OUTPUT); pinMode(4, OUTPUT);
+  //Yellow LEDs
+  pinMode(5, OUTPUT); pinMode(6, OUTPUT);
+  //Green LEDs
+  pinMode(7, OUTPUT); pinMode(8, OUTPUT);
+  
+  //Song: William Tell Overture(Gioachino Rossini)
+  //First solo
+  for(int i = 1; i <= 2; i++){
+    digitalWrite(1, HIGH);
+    delay(400);
+    digitalWrite(1, LOW);
+    delay(400);
+  }
+  //Loop
+  for(int k = 0; k <= 7; k++){
+    digitalWrite(8 - k, HIGH);
+    delay(100);
+    digitalWrite(8 - k, LOW);
+    delay(75);
+  }
+  for(int b = 0; b <= 5; b++){
+    for(int a = 0; a <= 3; a++){
+      digitalWrite(8 - a, HIGH);
+      digitalWrite(1 + a, HIGH);
+      delay(100);
+      digitalWrite(8 - a, LOW);
+      digitalWrite(1 + a, LOW);
+      delay(75);
+    }
+  }
+  for(int c = 0; c <= 3; c++){
+    digitalWrite(1, HIGH);
+    digitalWrite(1 + 2 * c, HIGH);
+    delay(750);
+  }
+  //Finale
+  for(int d = 0; d <= 7; d++){
+    digitalWrite(1 + d, HIGH);
+  }
+  delay(1700);
+  for(int e = 0; e <= 7; e++){
+    digitalWrite(1 + e, LOW);
+  }
+  delay(100);
+
+  
+}
+
+void loop(){
+}
